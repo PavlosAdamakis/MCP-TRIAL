@@ -6,13 +6,13 @@ This project is a lightweight, modular AI assistant framework based on the **Mod
 
 ##  Features
 
-* 🧠 **MCP (Model Content Protocol)**: Enables structured message passing between agents.
-* 🌤️ **Weather Tool**: Get current weather info for any city using wttr.in.
-* 💻 **Shell Tool**: Run basic shell commands.
-* 📊 **Excel Tool**: Upload and clean Excel files with natural language instructions.
-* 🧠 **Store Data Tool**: Log notes, metrics, and structured content.
-* 📧 **Gmail Tool** *(Optional)*: Compose email drafts (can be expanded).
-* 💬 **Interactive Web UI**: Talk to the assistant directly from your browser.
+*  **MCP (Model Content Protocol)**: Enables structured message passing between agents.
+*  **Weather Tool**: Get current weather info for any city using wttr.in.
+*  **Shell Tool**: Run basic shell commands.
+*  **Excel Tool**: Upload and clean Excel files with natural language instructions.
+*  **Store Data Tool**: Log notes, metrics, and structured content.
+*  **Gmail Tool** *(Optional)*: Compose email drafts (can be expanded).
+*  **Interactive Web UI**: Talk to the assistant directly from your browser.
 
 ---
 
@@ -38,8 +38,19 @@ uv venv
 source .venv/bin/activate  # or use uv shell on Windows
 uv pip install -r requirements.txt
 ```
+### .env Setup
 
+Create a `.env` file with:
+
+OPENAI_API_KEY=sk-...
+
+csharp
+Copy
+Edit
+
+This is required for GPT routing or tools using OpenAI.
 ### 2. Run the App
+
 
 ```bash
 uvicorn ui.server:app --reload

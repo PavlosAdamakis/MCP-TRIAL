@@ -42,7 +42,7 @@ uv pip install -r requirements.txt
 
 Create a `.env` file with:
 
-OPENAI_API_KEY=sk-...
+OPENAI_API_KEY
 
 csharp
 Copy

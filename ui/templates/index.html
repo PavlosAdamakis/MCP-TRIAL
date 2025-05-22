@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Agent UI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin-bottom: 100px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input[type="text"], select, input[type="file"] {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .response {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #4caf50;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+  <script>
+    function toggleFileUpload(selectElement) {
+      const fileUpload = document.getElementById("fileInput");
+      fileUpload.style.display = selectElement.value === "excel" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>MCP Agent Dashboard ⚙️</h1>
+    <form method="post" enctype="multipart/form-data">
+      <select name="tool" required onchange="toggleFileUpload(this)">
+        <option value="weather">🌤️ Weather</option>
+        <option value="shell">💻 Shell</option>
+        <option value="store_data">🧠 Store Data</option>
+        <option value="excel">📊 Excel (Upload)</option>
+      </select>
+      <input type="text" name="command" placeholder="Enter your command..." required />
+      <input type="file" name="file" id="fileInput" style="display: none;" />
+      <button type="submit">Send</button>
+    </form>
+    {% if response %}
+<div class="response">
+  <strong>Agent Response:</strong>
+  <div>{{ response }}</div>
+
+  {% if file_ready %}
+    <div style="margin-top: 10px;">
+      <a href="/download" style="color: #4caf50; text-decoration: underline;">⬇️ Download cleaned Excel</a>
+    </div>
+  {% endif %}
+
+  {% if response_html %}
+    <div class="preview-box" style="margin-top: 15px;">
+      <h4>Preview:</h4>
+      {{ response_html|safe }}
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+  </div>
+</body>
+</html>

@@ -14,7 +14,7 @@ def run_store_data_tool(params: dict) -> str:
                 data[key.strip()] = value.strip()
 
         if not data:
-            return "⚠️ No valid key=value data found."
+            return " No valid key=value data found."
 
         # Load existing or create new
         if os.path.exists(EXCEL_FILE):
@@ -24,6 +24,6 @@ def run_store_data_tool(params: dict) -> str:
 
         df = pd.concat([df, pd.DataFrame([data])], ignore_index=True)
         df.to_excel(EXCEL_FILE, index=False)
-        return "✅ Data stored successfully in Excel."
+        return "Data stored successfully in Excel.✅"
     except Exception as e:
-        return f"❌ Failed to store data: {e}"
+        return f" Failed to store data: {e}❌"

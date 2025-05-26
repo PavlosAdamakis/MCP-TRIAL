@@ -27,10 +27,10 @@ class OpsAgent:
                         preview_html = ""
 
                 except Exception as e:
-                    result = f"❌ Error running tool: {e}"
+                    result = f" Error running tool: {e}"
                     preview_html = ""
             else:
-                result = f"❌ Tool '{tool_name}' not found."
+                result = f" Tool '{tool_name}' not found."
                 preview_html = ""
 
             # Send back the result

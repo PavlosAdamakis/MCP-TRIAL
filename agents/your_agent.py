@@ -18,7 +18,7 @@ class YourAgent:
         mcp.register(self)
 
     def receive(self, message):
-        print(f"🧠 {self.name} received a message from {message.sender}")
+        print(f" {self.name} received a message from {message.sender}")
 
         # Extract what the user typed
         user_text = message.content.get("text", "")
@@ -64,7 +64,7 @@ User said:
             return json.loads(raw_json)
 
         except Exception as e:
-            print(f"⚠️ GPT failed to parse: {e}")
+            print(f"⚠ GPT failed to parse: {e}")
             return {
             "tool": "shell",
             "input": {

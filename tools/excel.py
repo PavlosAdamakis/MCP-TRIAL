@@ -13,7 +13,7 @@ def run_excel_tool(inputs):
     instructions = inputs.get("command", "")
 
     if not filepath or not os.path.exists(filepath):
-        return "❌ Couldn't find the uploaded Excel file.", ""
+        return " Couldn't find the uploaded Excel file.", ""
 
     try:
         df = pd.read_excel(filepath)
@@ -48,8 +48,8 @@ def run_excel_tool(inputs):
         cleaned_path = "cleaned_data.xlsx"
         df.to_excel(cleaned_path, index=False)
 
-        summary = "✅ File cleaned. " + ", ".join(actions_taken).capitalize() + ".\nDownload: [click here](/download)"
+        summary = "File cleaned. " + ", ".join(actions_taken).capitalize() + ".\nDownload: [click here](/download)"
         return summary, ""
 
     except Exception as e:
-        return f"❌ Failed to process Excel file: {e}", ""
+        return f" Failed to process Excel file: {e}", ""

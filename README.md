@@ -1,12 +1,12 @@
 # MCP Test Agent
 
-This project is a lightweight, modular AI assistant framework based on the **Model Content Protocol (MCP)**. It simulates agent-to-agent communication where messages are passed in a structured way between components like tools and user interfaces.
+This project is a lightweight, modular AI assistant framework based on the **Model Context Protocol (MCP)**. It simulates agent-to-agent communication where messages are passed in a structured way between components like tools and user interfaces.
 
 ---
 
 ##  Features
 
-*  **MCP (Model Content Protocol)**: Enables structured message passing between agents.
+*  **MCP (Model Context Protocol)**: Enables structured message passing between agents.
 *  **Weather Tool**: Get current weather info for any city using wttr.in.
 *  **Shell Tool**: Run basic shell commands.
 *  **Excel Tool**: Upload and clean Excel files with natural language instructions.
@@ -18,7 +18,7 @@ This project is a lightweight, modular AI assistant framework based on the **Mod
 
 ##  Why MCP?
 
-MCP stands for **Model Content Protocol**. It simulates a structured, agent-like messaging system that mimics AI-to-AI communication. In this project:
+MCP stands for **Model Context Protocol**. It simulates a structured, agent-like messaging system that mimics AI-to-AI communication. In this project:
 
 * The Web UI acts as **WebUser**.
 * Messages are dispatched to **OpsAgent**.
